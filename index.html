@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Store | Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">NOVA<span>STORE</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <button class="cart-btn" onclick="toggleCart()">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <p class="tagline">NEW COLLECTION 2026</p>
+            <h1>Style that speaks<br>for you.</h1>
+            <p>Discover quality products, great style, and amazing deals.</p>
+            <a href="#shop" class="shop-now">Shop Now →</a>
+        </div>
+    </section>
+
+    <!-- Shop section -->
+    <section class="shop-section" id="shop">
+        <h2>Explore Our Products</h2>
+        <p class="subtitle">Find your favorite products</p>
+
+        <!-- Search -->
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search products..."
+            oninput="searchProducts()"
+        >
+
+        <!-- Category buttons -->
+        <div class="categories">
+            <button class="category active" onclick="filterCategory('All', this)">All</button>
+            <button class="category" onclick="filterCategory('Clothing', this)">Clothing</button>
+            <button class="category" onclick="filterCategory('Shoes', this)">Shoes</button>
+            <button class="category" onclick="filterCategory('Accessories', this)">Accessories</button>
+            <button class="category" onclick="filterCategory('Electronics', this)">Electronics</button>
+        </div>
+
+        <!-- Products -->
+        <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <h2>About Nova Store</h2>
+        <p>
+            Nova Store is your destination for discovering modern products,
+            everyday essentials, and a shopping experience you will love.
+        </p>
+    </section>
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCartOutside(event)">
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h2>Your Shopping Cart</h2>
+                <button class="close-btn" onclick="toggleCart()">✕</button>
+            </div>
+
+            <div id="cart-items"></div>
+
+            <div class="cart-footer">
+                <h3>Total: <span id="cart-total">0</span> ETB</h3>
+                <button class="checkout-btn" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Nova Store. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
